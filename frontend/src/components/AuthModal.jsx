@@ -1,6 +1,11 @@
 import { useState } from "react";
 
-export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }) {
+export default function AuthModal({
+  isOpen,
+  onClose,
+  onAuthSuccess,
+  backendUrl,
+}) {
   const [isLogin, setIsLogin] = useState(true);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -66,7 +71,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
 
         {/* Modal Header */}
         <div className="mb-6 text-center">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-tr from-cyan-600 to-emerald-500 text-2xl font-bold shadow-lg shadow-cyan-900/30 mb-3">
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-linear-to-tr from-cyan-600 to-emerald-500 text-2xl font-bold shadow-lg shadow-cyan-900/30 mb-3">
             🔐
           </div>
           <h2 className="text-xl font-bold text-white tracking-wide">
@@ -179,7 +184,9 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
                 onChange={(e) => setRole(e.target.value)}
                 className="w-full px-3 py-2 rounded-lg bg-slate-900/80 border border-slate-800 text-xs text-white focus:outline-none focus:border-cyan-500 transition"
               >
-                <option value="operator">Grid Operator (Monitor & Crisis Control)</option>
+                <option value="operator">
+                  Grid Operator (Monitor & Crisis Control)
+                </option>
                 <option value="admin">Grid Administrator (Full Access)</option>
                 <option value="viewer">Telemetry Viewer (Read Only)</option>
               </select>
@@ -189,7 +196,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
           <button
             type="submit"
             disabled={loading}
-            className="w-full mt-2 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg shadow-cyan-900/30 transition-all duration-200 active:scale-95 disabled:opacity-50 cursor-pointer flex items-center justify-center gap-2"
+            className="w-full mt-2 py-3 rounded-xl bg-linear-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg shadow-cyan-900/30 transition-all duration-200 active:scale-95 disabled:opacity-50 cursor-pointer flex items-center justify-center gap-2"
           >
             {loading ? (
               <span className="inline-block w-4 h-4 border-2 border-slate-950 border-t-transparent rounded-full animate-spin" />
@@ -202,7 +209,8 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
         </form>
 
         <div className="mt-5 pt-4 border-t border-slate-900 text-center text-[11px] text-slate-500 font-mono">
-          Tokens stored securely in <code className="text-cyan-400">localStorage</code>
+          Tokens stored securely in{" "}
+          <code className="text-cyan-400">localStorage</code>
         </div>
       </div>
     </div>

@@ -27,16 +27,11 @@ export default function App() {
     backendUrl,
   } = useGridSocket();
 
-  const {
-    user,
-    login,
-    logout,
-    isAuthModalOpen,
-    setIsAuthModalOpen,
-  } = useAuth();
+  const { user, login, logout, isAuthModalOpen, setIsAuthModalOpen } =
+    useAuth();
 
   return (
-    <div className="flex flex-col h-screen w-screen bg-slate-950 text-slate-100 overflow-hidden font-sans">
+    <div className="flex flex-col h-screen w-screen bg-cyan-600 text-slate-100 overflow-hidden font-sans">
       {/* Top Navbar */}
       <NavBar
         activeTab={activeTab}
@@ -101,10 +96,7 @@ export default function App() {
               )}
 
               {activeTab === "routes" && (
-                <RoutesView
-                  routes={routes}
-                  nodes={nodes}
-                />
+                <RoutesView routes={routes} nodes={nodes} />
               )}
 
               {activeTab === "auth" && (

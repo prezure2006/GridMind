@@ -9,23 +9,17 @@ export default function NavBar({
   onLogout = () => {},
 }) {
   return (
-    <header className="h-16 border-b border-slate-800 bg-slate-950/90 backdrop-blur-md px-6 flex items-center justify-between text-slate-100 sticky top-0 z-30 flex-shrink-0">
+    <header className="h-16 border-b border-slate-800 bg-yellow-900/60 backdrop-blur-md px-6 flex items-center justify-between text-slate-100 sticky top-0 z-30 shrink-0">
       {/* Brand */}
       <div
         className="flex items-center gap-3 cursor-pointer select-none"
         onClick={() => setActiveTab("home")}
       >
-        <div className="w-9 h-9 rounded-lg bg-gradient-to-tr from-cyan-600 to-emerald-500 flex items-center justify-center font-black text-white text-lg shadow-lg shadow-cyan-900/30">
-          ⚡
-        </div>
-        <div>
+        <div className=" border-5 border-yellow-500">
           <div className="font-extrabold tracking-wider text-base text-white flex items-center gap-1.5">
-            GRID<span className="text-cyan-400">MIND</span>
-            <span className="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800">
-              v2.0
-            </span>
+            GRID MIND
           </div>
-          <div className="text-[11px] text-slate-400">
+          <div className="text-[11px] text-white-400">
             Urban Energy Grid Optimizer
           </div>
         </div>
@@ -118,7 +112,7 @@ export default function NavBar({
         ) : (
           <button
             onClick={onOpenAuth}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-cyan-600 to-emerald-600 hover:from-cyan-500 hover:to-emerald-500 text-white text-xs font-bold shadow-md shadow-cyan-900/30 transition cursor-pointer active:scale-95"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-linear-to-r from-cyan-600 to-emerald-600 hover:from-cyan-500 hover:to-emerald-500 text-white text-xs font-bold shadow-md shadow-cyan-900/30 transition cursor-pointer active:scale-95"
           >
             <span>🔐</span>
             <span>Operator Sign In</span>

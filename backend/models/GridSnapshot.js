@@ -11,8 +11,8 @@ const gridSnapshotSchema = new mongoose.Schema({
         type: String,
         enum: ["solar", "battery", "building", "ev_charger"],
       },
-      load: Number, // 0–100 current load percentage
-      capacity: Number, // max capacity in kW
+      load: Number,
+      capacity: Number,
       x: Number,
       y: Number,
       disabled: Boolean,
@@ -23,10 +23,10 @@ const gridSnapshotSchema = new mongoose.Schema({
       from: Number,
       to: Number,
       path: [Number],
-      flow: Number, // kW flowing along this route
+      flow: Number,
     },
   ],
-  efficiency: Number, // grid efficiency 0–100
+  efficiency: Number,
   wastePercent: Number,
 });
 
