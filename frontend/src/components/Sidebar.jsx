@@ -28,8 +28,8 @@ function HealthBar({ value = 0, color = "#00d4ff" }) {
             value > 70
               ? `linear-gradient(90deg, #10b981, #06b6d4)`
               : value > 40
-              ? "linear-gradient(90deg, #eab308, #f59e0b)"
-              : "linear-gradient(90deg, #ef4444, #dc2626)",
+                ? "linear-gradient(90deg, #eab308, #f59e0b)"
+                : "linear-gradient(90deg, #ef4444, #dc2626)",
           boxShadow: `0 0 10px ${
             value > 70 ? "#06b6d480" : value > 40 ? "#eab30880" : "#ef444480"
           }`,
@@ -68,7 +68,9 @@ export default function Sidebar({
     return (
       <aside className="w-80 h-full flex flex-col items-center justify-center p-6 text-slate-500 bg-slate-950 border-l border-slate-800">
         <div className="w-6 h-6 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin mb-3"></div>
-        <div className="text-sm font-medium">Connecting to Socket.io Grid...</div>
+        <div className="text-sm font-medium">
+          Connecting to Socket.io Grid...
+        </div>
       </aside>
     );
   }
@@ -86,7 +88,7 @@ export default function Sidebar({
   const healthScore = Math.round(efficiency);
 
   return (
-    <aside className="w-84 h-full flex flex-col bg-slate-950 border-l border-slate-800 overflow-y-auto text-slate-100">
+    <aside className="w-84 h-full flex flex-col bg-yellow-950 border-l border-slate-800 overflow-y-auto text-slate-100">
       {/* Header */}
       <div className="p-4 border-b border-slate-800/80 bg-slate-900/40">
         <div className="flex items-center justify-between mb-1.5">
@@ -109,7 +111,9 @@ export default function Sidebar({
         <h2 className="text-lg font-bold tracking-wider text-white">
           GRID<span className="text-cyan-400">MIND</span> CONTROL
         </h2>
-        <p className="text-xs text-slate-400">Urban Real-Time Energy Optimizer</p>
+        <p className="text-xs text-slate-400">
+          Urban Real-Time Energy Optimizer
+        </p>
       </div>
 
       {/* Selected Node Details Card (if clicked) */}
@@ -132,7 +136,9 @@ export default function Sidebar({
                 <div className="font-bold text-white text-sm">
                   {selectedNode.name || `Ward ${selectedNode.id + 1}`}
                 </div>
-                <div className={`text-xs ${TYPE_COLORS[selectedNode.type] || "text-slate-400"}`}>
+                <div
+                  className={`text-xs ${TYPE_COLORS[selectedNode.type] || "text-slate-400"}`}
+                >
                   {TYPE_LABELS[selectedNode.type] || selectedNode.type}
                 </div>
               </div>
@@ -141,22 +147,31 @@ export default function Sidebar({
                   selectedNode.disabled
                     ? "bg-rose-950 text-rose-400 border border-rose-800"
                     : selectedNode.load > 80
-                    ? "bg-amber-950 text-amber-400 border border-amber-800"
-                    : "bg-emerald-950 text-emerald-400 border border-emerald-800"
+                      ? "bg-amber-950 text-amber-400 border border-amber-800"
+                      : "bg-emerald-950 text-emerald-400 border border-emerald-800"
                 }`}
               >
-                {selectedNode.disabled ? "OFFLINE" : `${selectedNode.load}% LOAD`}
+                {selectedNode.disabled
+                  ? "OFFLINE"
+                  : `${selectedNode.load}% LOAD`}
               </span>
             </div>
             <div className="grid grid-cols-2 gap-2 text-xs pt-1 border-t border-slate-800">
               <div>
                 <span className="text-slate-500">Capacity: </span>
-                <span className="font-mono text-slate-200">{selectedNode.capacity} kW</span>
+                <span className="font-mono text-slate-200">
+                  {selectedNode.capacity} kW
+                </span>
               </div>
               <div>
                 <span className="text-slate-500">Current Load: </span>
                 <span className="font-mono text-cyan-300">
-                  {Math.round(((selectedNode.capacity || 100) * (selectedNode.load || 0)) / 100)} kW
+                  {Math.round(
+                    ((selectedNode.capacity || 100) *
+                      (selectedNode.load || 0)) /
+                      100,
+                  )}{" "}
+                  kW
                 </span>
               </div>
             </div>
@@ -175,8 +190,8 @@ export default function Sidebar({
               healthScore > 70
                 ? "text-emerald-400"
                 : healthScore > 40
-                ? "text-amber-400"
-                : "text-rose-400"
+                  ? "text-amber-400"
+                  : "text-rose-400"
             }`}
           >
             {healthScore}%
@@ -187,15 +202,24 @@ export default function Sidebar({
           {healthScore > 70
             ? "🟢 Grid optimized & balanced"
             : healthScore > 40
-            ? "🟡 Stress detected, rerouting"
-            : "🔴 Critical failure — intervention required"}
+              ? "🟡 Stress detected, rerouting"
+              : "🔴 Critical failure — intervention required"}
         </div>
       </div>
 
       {/* Stats Grid */}
       <div className="p-4 grid grid-cols-2 gap-2 border-b border-slate-800/80">
-        <StatBox label="Waste Rate" value={wastePercent} unit="%" sub="overloaded" />
-        <StatBox label="Active Routes" value={activeRoutes} sub="Dijkstra flows" />
+        <StatBox
+          label="Waste Rate"
+          value={wastePercent}
+          unit="%"
+          sub="overloaded"
+        />
+        <StatBox
+          label="Active Routes"
+          value={activeRoutes}
+          sub="Dijkstra flows"
+        />
         <StatBox label="Avg Load" value={avgLoad} unit="%" sub="system wide" />
         <StatBox
           label="Overloaded"
@@ -223,17 +247,23 @@ export default function Sidebar({
                     <div className="font-semibold text-slate-200">
                       {node.name || `Ward ${node.id + 1}`}
                     </div>
-                    <div className={`text-[10px] ${TYPE_COLORS[node.type] || "text-slate-400"}`}>
+                    <div
+                      className={`text-[10px] ${TYPE_COLORS[node.type] || "text-slate-400"}`}
+                    >
                       {TYPE_LABELS[node.type] || node.type}
                     </div>
                   </div>
                 </div>
-                <div className="text-rose-400 font-mono font-bold">{node.load}%</div>
+                <div className="text-rose-400 font-mono font-bold">
+                  {node.load}%
+                </div>
               </div>
             ))}
           </div>
         ) : (
-          <p className="text-xs text-slate-500 italic">No overloaded hotspots detected</p>
+          <p className="text-xs text-slate-500 italic">
+            No overloaded hotspots detected
+          </p>
         )}
       </div>
 
