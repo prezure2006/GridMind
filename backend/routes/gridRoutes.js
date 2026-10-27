@@ -10,7 +10,7 @@ const {
 router.get("/", (req, res) => {
   const gridData = getGridData();
   res.json(gridData);
-}); // ✅ CORRECT
+});
 // POST trigger crisis
 router.post("/crisis", (req, res) => {
   const gridData = triggerCrisis();
