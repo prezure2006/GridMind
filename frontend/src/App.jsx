@@ -111,7 +111,6 @@ export default function App() {
           )}
         </main>
 
-        {/* Live Sidebar Controls (Visible in Grid Simulator) */}
         {activeTab === "grid" && !loading && (
           <Sidebar
             stats={stats}
